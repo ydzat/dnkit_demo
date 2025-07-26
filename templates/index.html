@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+</head>
+<body>
+    <h1>Scientific Calculator</h1>
+    <form id="calculator-form">
+        <input type="text" id="expression" name="expression" placeholder="Enter expression">
+        <button type="submit">Calculate</button>
+    </form>
+    <div id="result"></div>
+    <script>
+        document.getElementById('calculator-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const expression = document.getElementById('expression').value;
+            fetch('/calculate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `expression=${encodeURIComponent(expression)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById('result');
+                if (data.error) {
+                    resultDiv.textContent = `Error: ${data.error}`;
+                } else {
+                    resultDiv.textContent = `Result: ${data.result}`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
