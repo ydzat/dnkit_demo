@@ -1,3 +1,7 @@
-# Scientific Calculator Web Project
-
-A Python web project for a scientific calculator with HTML frontend, inspired by [Symbolab's calculus calculator](https://zs.symbolab.com/solver/calculus-calculator) .
+<!--
+ * @Author: @ydzat
+ * @Date: 2025-07-17 22:28:20
+ * @LastEditors: @ydzat
+ * @LastEditTime: 2025-07-26 13:28:54
+ * @Description: 
+-->
